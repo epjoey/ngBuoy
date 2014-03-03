@@ -1,10 +1,12 @@
 /**
  * Require configuration.  Load angular from shim and export the
- * `angular` value.  This uses a CDN to load angular, but that
- * is not necessary.  A local file will work just fine.
+ * `angular` value.
  */
 require.config({                                                                
-  shim: {                                                                     
+  shim: {    
+    socketio: {
+      exports: 'io'
+    },                                                                 
     angular: {                                                              
       exports: 'angular', 
     },
@@ -12,18 +14,20 @@ require.config({
     angularMocks: {
       deps: ['angular'],
       exports: 'angular.mock'
+    },
+    angularResource: {
+      deps: ['angular']
     }
   },                                                                          
   paths: {                                                                    
     angular: 'lib/angular',
     angularRoute: 'lib/angular-route',
     angularMocks: 'lib/angular-mocks',
+    angularResource: '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0rc3/angular-resource.min.js',
+    socketio: "/socket.io/socket.io"
   },
   baseUrl: 'public/js'                                                                         
-});      
-
-// window.name = "NG_DEFER_BOOTSTRAP!";                                                                       
-var log = console.log;
+});
 
 require([
 
@@ -31,13 +35,7 @@ require([
   'app',
   'routes'
 
-], function (
-
-  ng,
-  app,
-  routes
-
-){
+], function(ng) {
     
   // since were async loading our scripts using requirejs, we need to wait until the document is ready,
   // then manually bootstrap the app (only after declaring our controllers)

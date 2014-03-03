@@ -1,6 +1,5 @@
-define(function () {
-  return ["$scope", function($scope) {
-    console.log('uppppp!');
-    $scope.whoa = 'sdklnvksdn!';
-  }];
+define(['app'], function (app) {
+  app.controller('HelloCtrl', ["$scope", function($scope) {
+    console.log('hello!');
+  }]);
 });

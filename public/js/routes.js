@@ -1,7 +1,12 @@
 define([
 
   'angular',
-  'app'
+  'app',
+
+  // not needed to be used, just loaded
+  'controller/HomeCtrl',
+  'controller/HelloCtrl'
+
 
 ], function (
 
