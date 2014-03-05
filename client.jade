@@ -2,8 +2,10 @@
 html
   head
     title NGB
+    link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', type='text/css', rel="stylesheet")
+    link(href='/public/css/daterangepicker.css', type='text/css', rel="stylesheet")
 
   body
     div(ng-view)
     
-    script(data-main="/public/js/main", src="/public/js/lib/require-jquery.js")
+    script(data-main="/public/js/main", src="/public/js/lib/require.js")

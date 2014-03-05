@@ -17,14 +17,22 @@ require.config({
     },
     angularResource: {
       deps: ['angular']
-    }
+    },
+
+    dateRangePicker: {
+      deps: ['jquery', 'moment'],
+      exports: 'jQuery.fn.daterangepicker'
+    },
   },                                                                          
-  paths: {                                                                    
+  paths: {     
+    jquery: 'lib/jquery',
+    moment: '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min',
     angular: 'lib/angular',
     angularRoute: 'lib/angular-route',
     angularMocks: 'lib/angular-mocks',
     angularResource: '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0rc3/angular-resource.min.js',
-    socketio: "/socket.io/socket.io"
+    socketio: "/socket.io/socket.io",
+    dateRangePicker: "lib/daterangepicker"
   },
   baseUrl: 'public/js'                                                                         
 });
